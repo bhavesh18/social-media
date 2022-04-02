@@ -1,0 +1,25 @@
+ platform :ios, '10.0'
+
+target 'InstagramClone' do
+  use_frameworks!
+
+pod 'FBSDKLoginKit'
+pod 'FBSDKCoreKit'
+pod 'FacebookCore'
+pod 'FacebookLogin'
+pod 'Firebase/Auth'
+pod 'Firebase/Database'
+pod 'Firebase/Storage'
+
+pod 'Bolts'
+pod 'FirebaseAnalytics'
+pod 'GoogleInterchangeUtilities'
+pod 'GoogleToolboxForMac'
+pod 'AlamofireObjectMapper'
+pod 'FirebaseInstanceID'
+
+pod 'Toaster'
+pod 'ANLoader'
+pod 'GoogleMobileAds'
+
+end
