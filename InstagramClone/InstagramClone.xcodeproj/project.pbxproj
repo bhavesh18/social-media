@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1BC9F83A27F92D9600A45D6E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1BC9F83927F92D9600A45D6E /* GoogleService-Info.plist */; };
 		661402402448A73800BA262F /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6614023F2448A73800BA262F /* AboutViewController.swift */; };
 		66146C4D243294160058D20D /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66146C4C243294160058D20D /* HelpViewController.swift */; };
 		662F569F24180EF8009840CC /* SharePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 662F569E24180EF8009840CC /* SharePostViewController.swift */; };
@@ -25,7 +26,6 @@
 		666F98F324492D6300A6E420 /* TimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666F98F224492D6300A6E420 /* TimeInterval.swift */; };
 		666F98F5244966AD00A6E420 /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666F98F4244966AD00A6E420 /* PopUpViewController.swift */; };
 		669EE9D223F1BE82002F3068 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669EE9D123F1BE82002F3068 /* SignupViewController.swift */; };
-		669EE9D523F1D8C3002F3068 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 669EE9D423F1D8C3002F3068 /* GoogleService-Info.plist */; };
 		669EE9D723F1FF11002F3068 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669EE9D623F1FF11002F3068 /* BaseViewController.swift */; };
 		66AF765723F45AAE0024D33A /* FirebaseRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66AF765623F45AAE0024D33A /* FirebaseRepo.swift */; };
 		66B9077F2417157B00F170F7 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B9077E2417157B00F170F7 /* SearchViewController.swift */; };
@@ -57,6 +57,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1BC9F83927F92D9600A45D6E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5000D4A2E02F15523DC91C5A /* Pods_InstagramClone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InstagramClone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6614023F2448A73800BA262F /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		66146C4C243294160058D20D /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
@@ -79,7 +80,6 @@
 		666F98F4244966AD00A6E420 /* PopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
 		669EE9D123F1BE82002F3068 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		669EE9D323F1D35F002F3068 /* InstagramClone.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = InstagramClone.entitlements; sourceTree = "<group>"; };
-		669EE9D423F1D8C3002F3068 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		669EE9D623F1FF11002F3068 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		66AF765623F45AAE0024D33A /* FirebaseRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseRepo.swift; sourceTree = "<group>"; };
 		66B9077E2417157B00F170F7 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -152,9 +152,9 @@
 		664A446223ED073B00A1E653 /* InstagramClone */ = {
 			isa = PBXGroup;
 			children = (
+				1BC9F83927F92D9600A45D6E /* GoogleService-Info.plist */,
 				66C3B2DE241FDF7B002A910A /* Protocol */,
 				66F7DB58241976C9000AE753 /* Server */,
-				669EE9D423F1D8C3002F3068 /* GoogleService-Info.plist */,
 				669EE9D323F1D35F002F3068 /* InstagramClone.entitlements */,
 				66B90780241745BB00F170F7 /* TableCell */,
 				664A447823ED208D00A1E653 /* Util */,
@@ -340,7 +340,7 @@
 			files = (
 				664A447023ED073B00A1E653 /* LaunchScreen.storyboard in Resources */,
 				66F7DB5F241986B4000AE753 /* HomeTableViewCell.xib in Resources */,
-				669EE9D523F1D8C3002F3068 /* GoogleService-Info.plist in Resources */,
+				1BC9F83A27F92D9600A45D6E /* GoogleService-Info.plist in Resources */,
 				664A446D23ED073B00A1E653 /* Assets.xcassets in Resources */,
 				66B907882417477800F170F7 /* SearchCell.xib in Resources */,
 				664A446B23ED073B00A1E653 /* Main.storyboard in Resources */,
@@ -626,7 +626,7 @@
 					"-framework",
 					"\"SystemConfiguration\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.dharam.InstagramClone;
+				PRODUCT_BUNDLE_IDENTIFIER = com.capstone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -686,7 +686,7 @@
 					"-framework",
 					"\"SystemConfiguration\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.dharam.InstagramClone;
+				PRODUCT_BUNDLE_IDENTIFIER = com.capstone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;

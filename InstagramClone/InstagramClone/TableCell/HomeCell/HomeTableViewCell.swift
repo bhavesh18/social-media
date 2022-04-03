@@ -41,81 +41,86 @@ class HomeTableViewCell: UITableViewCell {
     
     @IBAction func likeBtnTapped(_ sender: UIButton) {
         
-        print(self.authorID)
-        print(self.postID)
-        print(self.localData.fireUserId)
+        //        print(self.authorID)
+        //        print(self.postID)
+        //        print(self.localData.fireUserId)
         
-        //For liking the post
-        let activityNode = ref.child("users").child(self.authorID).child("activity").child(postID)
+        //        onLikeTap()
         
-        ref.child("users").child(self.authorID).child("activity").child(self.postID).observeSingleEvent(of: .value, with: { (snapshot) in
+        DispatchQueue.main.async {
             
-            print(snapshot)
-            if let post = snapshot.value as? [String : AnyObject] {
-                print(post)
+            //For liking the post
+            let activityNode = self.ref.child("users").child(self.authorID).child("activity").child(self.postID)
+            
+            self.ref.child("users").child(self.authorID).child("activity").child(self.postID).observeSingleEvent(of: .value, with: { (snapshot) in
                 
-                if let properties = snapshot.value as? [String : AnyObject] {
-                    print(properties)
+                //            print(snapshot)
+                if let _ = snapshot.value as? [String : AnyObject] {
+                    //                print(post)
                     
-                    if self.ifAlreadyLiked == false{
+                    if let properties = snapshot.value as? [String : AnyObject] {
+                        //                    print(properties)
                         
-                        if let likes = properties["likeCount"] as? [String:AnyObject]{
-                            print(likes.count)
-                            activityNode.child("likeCount").child(self.localData.fireUserId).setValue(["authorid":self.localData.fireUserId,"authorNameWhoLike":self.localData.userName])
+                        if self.ifAlreadyLiked == false{
                             
-                            self.ifAlreadyLiked = true
-                        }else{
-                            activityNode.child("likeCount").child(self.localData.fireUserId).setValue(["authorid":self.localData.fireUserId,"authorNameWhoLike":self.localData.userName])
-                            
-                        }
-                    }else{
-                        
-                        //For unlike the  post
-                        
-                        let activityNode = self.ref.child("users").child(self.authorID).child("activity").child(self.postID)
-                        
-                        activityNode.observeSingleEvent(of: .value, with: { (snapshot) in
-                            
-                            if let properties = snapshot.value as? [String : AnyObject] {
-                                if let peopleWhoLike = properties["likeCount"] as? [String : AnyObject] {
-                                    print(peopleWhoLike)
-                                    activityNode.child("likeCount").child(self.localData.fireUserId).removeValue(completionBlock: { (error, reff) in
-                                        if error == nil {
-                                            activityNode.observeSingleEvent(of: .value, with: { (snap) in
-                                                if let prop = snap.value as? [String : AnyObject] {
-                                                    if let likes = prop["likeCount"] as? [String : AnyObject] {
-                                                        print(likes)
-                                                        
-                                                        activityNode.child("likeCount").updateChildValues(["": ""])
-                                                        
-                                                        
-                                                    }else {
-                                                        activityNode.child("likeCount").updateChildValues(["": ""])
-                                                        
-                                                    }
-                                                }
-                                            })
-                                        }
-                                    })
-                                }
+                            if let likes = properties["likeCount"] as? [String:AnyObject]{
+                                print(likes.count)
+                                activityNode.child("likeCount").child(self.localData.fireUserId).setValue(["authorid":self.localData.fireUserId,"authorNameWhoLike":self.localData.userName])
+                                
+                                self.ifAlreadyLiked = true
+                            }else{
+                                activityNode.child("likeCount").child(self.localData.fireUserId).setValue(["authorid":self.localData.fireUserId,"authorNameWhoLike":self.localData.userName])
+                                
                             }
-                        })
-                        self.ref.removeAllObservers()
-                        self.ifAlreadyLiked = false
+                        }else{
+                            
+                            //For unlike the  post
+                            
+                            let activityNode = self.ref.child("users").child(self.authorID).child("activity").child(self.postID)
+                            
+                            activityNode.observeSingleEvent(of: .value, with: { (snapshot) in
+                                
+                                if let properties = snapshot.value as? [String : AnyObject] {
+                                    if let peopleWhoLike = properties["likeCount"] as? [String : AnyObject] {
+                                        //                                    print(peopleWhoLike)
+                                        activityNode.child("likeCount").child(self.localData.fireUserId).removeValue(completionBlock: { (error, reff) in
+                                            if error == nil {
+                                                activityNode.observeSingleEvent(of: .value, with: { (snap) in
+                                                    if let prop = snap.value as? [String : AnyObject] {
+                                                        if let likes = prop["likeCount"] as? [String : AnyObject] {
+                                                            print(likes)
+                                                            
+                                                            activityNode.child("likeCount").updateChildValues(["": ""])
+                                                            
+                                                            
+                                                        }else {
+                                                            activityNode.child("likeCount").updateChildValues(["": ""])
+                                                            
+                                                        }
+                                                    }
+                                                })
+                                            }
+                                        })
+                                    }
+                                }
+                            })
+                            self.ref.removeAllObservers()
+                            self.ifAlreadyLiked = false
+                        }
                     }
                 }
-            }
-        })
-        
-        activityNode.child("likeCount").observe(.value, with: { (snapshot: DataSnapshot!) in
-            print("Got snapshot");
-            print(snapshot.childrenCount)
-            activityNode.updateChildValues(["likes" : snapshot.childrenCount])
-            self.likeBtnCount.setTitle("\(snapshot.childrenCount ) Likes", for: .normal)
-        })
-        
-        ANLoader.hide()
-        ref.removeAllObservers()
+            })
+            
+            activityNode.child("likeCount").observe(.value, with: { (snapshot: DataSnapshot!) in
+                print("Got snapshot");
+                //            print(snapshot.childrenCount)
+                activityNode.updateChildValues(["likes" : snapshot.childrenCount])
+                self.likeBtnCount.setTitle("\(snapshot.childrenCount ) Likes", for: .normal)
+            })
+            
+            ANLoader.hide()
+            self.ref.removeAllObservers()
+        }
     }
     
     @IBAction func commentBtnTapped(_ sender: Any) {
@@ -125,6 +130,10 @@ class HomeTableViewCell: UITableViewCell {
     
     @IBAction func shareBtnTapped(_ sender: Any) {
         delegate.share(cell: self, index: index)
+    }
+    
+    func onLikeTap(){
+        //        ref.child("likes").child().child("activity").child(postID)
     }
     
     override func awakeFromNib() {

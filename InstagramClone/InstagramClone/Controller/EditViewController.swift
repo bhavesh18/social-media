@@ -78,7 +78,7 @@ extension EditViewController {
         
         let uid = localData.fireUserId
         // let ref = Database.database().reference()
-        let storage = Storage.storage().reference(forURL: "gs://mapsbhavesh.appspot.com")
+        let storage = Storage.storage().reference(forURL: "gs://capstone-22743.appspot.com")
         
         
         let imageRef = storage.child("profile").child(uid).child("\(String(describing: key)).jpg")

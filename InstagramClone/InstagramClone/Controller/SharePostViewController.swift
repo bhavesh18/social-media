@@ -55,13 +55,16 @@ extension SharePostViewController {
         let result1 = formatter.string(from: date)
         currentDate.text = result1
         
-        if localData.profileData.profilepic == ""{
-            imageView.image =  UIImage(named: "baseline_account_circle_white_24pt")
-           
-        }else{
-   
-            imageView.downloadImage(from: self.localData.profileData.profilepic)
-        }
+//        if localData.profileData.profilepic == ""{
+//            imageView.image =  UIImage(named: "icons8-image-file-add-64")
+//
+//        }else{
+//
+//            imageView.downloadImage(from: self.localData.profileData.profilepic)
+//        }
+        
+        imageView.image =  UIImage(named: "icons8-image-file-add-64")
+        
          imageView.contentMode = .scaleToFill
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap))
@@ -75,11 +78,16 @@ extension SharePostViewController {
     
     
     func sharePost() {
+        if (self.captionTxtView.text == ""){
+            
+            return
+        }
         let timeInterval = NSDate().timeIntervalSince1970
         let activityNode = self.ref.child("users").child(self.localData.fireUserId).child("activity").childByAutoId()
         let key  = activityNode.key
         let uid = localData.fireUserId
-        let storage = Storage.storage().reference(forURL: "gs://mapsbhavesh.appspot.com")
+        let storage = Storage.storage().reference(forURL: "gs://capstone-22743.appspot.com")
+        
         
         let imageRef = storage.child("posts").child(uid).child("\(String(describing: key)).jpg")
         
@@ -107,7 +115,9 @@ extension SharePostViewController {
                                 "postID" : key!] as [String : Any]
                     
                     activityNode.updateChildValues(feed)
-                    self.loginAlert(title: "IMAGE", msg: "Imaage Uploaded successfully")
+                    self.loginAlert(title: "IMAGE", msg: "Imaage Uploaded successfully"){
+                        self.navigationController?.popViewController(animated: true)
+                    }
                     
                 }
             })
@@ -116,6 +126,8 @@ extension SharePostViewController {
         
         uploadTask.resume()
         
+//        self.ref.child("likes").child(self.localData.fireUserId).child("likeCount")
+//        self.ref.child("likes").child(self.localData.fireUserId).child("isLiked")
         
     }
     

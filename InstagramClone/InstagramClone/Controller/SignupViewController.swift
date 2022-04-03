@@ -14,6 +14,7 @@ import Firebase
 import FirebaseDatabase
 import ObjectMapper
 import ANLoader
+
 class SignupViewController: BaseViewController {
     
     // Variables
@@ -121,31 +122,17 @@ extension SignupViewController{
             
         }else{
             // Create new User after checking in database ----- Email registration done
-                      self.isSignUp = true
-                          let forAutoId =  (self.ref.child("users")).childByAutoId()
-                          forAutoId.child("profile").setValue(["username": userName,"email":email1,"password":password,"fullname":self.fullnameTxtfield.text!])
-                          CurrentSession.getI().localData.fireUserId = forAutoId.key ?? ""
-                          CurrentSession.getI().saveData()
-                          self.loginAlert(title: "Done", msg: "Sign Up Successfully")
-                      
-                      
-                      return
+            self.isSignUp = true
+            let forAutoId =  (self.ref.child("users")).childByAutoId()
+            forAutoId.child("profile").setValue(["username": userName,"email":email1,"password":password,"fullname":self.fullnameTxtfield.text!])
+            CurrentSession.getI().localData.fireUserId = forAutoId.key ?? ""
+            CurrentSession.getI().saveData()
+            self.loginAlert(title: "Done", msg: "Sign Up Successfully"){
+                self.dismiss(animated: true)
+            }
             
-//            Auth.auth().createUser(withEmail: emailTxtField.text!, password: passwordTxtField.text!, completion: { (user, error) in
-//                if error != nil {
-//                    print(error!)
-//                }else {
-//                    let uid = Auth.auth().currentUser?.uid
-//                    // Create new User after checking in database ----- Email registration done
-//                    self.isSignUp = true
-//                    let forAutoId =  (self.ref.child("users")).child(uid ?? "")
-//                    forAutoId.child("profile").setValue(["username": userName,"email":email1,"password":password,"fullname":self.fullnameTxtfield.text!])
-//                    CurrentSession.getI().localData.fireUserId = forAutoId.key ?? ""
-//                    CurrentSession.getI().saveData()
-//                    self.loginAlert(title: "Done", msg: "Sign Up Successfully")
-//                }
-//            })
-//            return
+            return
+           
         }
     }
 }

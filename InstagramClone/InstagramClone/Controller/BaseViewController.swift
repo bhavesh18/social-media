@@ -39,9 +39,11 @@ class BaseViewController: UIViewController {
         
     }
     
-    func loginAlert(title: String = "Error", msg: String = "Invalid Credentials"){
+    func loginAlert(title: String = "Error", msg: String = "Invalid Credentials", completion: (()->())? = nil){
         let alertController = UIAlertController(title: title, message: msg, preferredStyle: .alert)
-        let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        let defaultAction = UIAlertAction(title: "OK", style: .cancel) { action in
+            completion?()
+        }
         
         alertController.addAction(defaultAction)
         self.present(alertController, animated: true, completion: nil)
@@ -95,7 +97,17 @@ extension UIImageView {
 }
 
 
+extension DispatchQueue {
 
+    static func background(delay: Double = 0.0, background: (()->Void)? = nil, completion: (() -> Void)? = nil) {
+        DispatchQueue.global(qos: .background).async {
+            background?()
+            if let completion = completion {
+                DispatchQueue.main.asyncAfter(deadline: .now() + delay, execute: {
+                    completion()
+                })
+            }
+        }
+    }
 
-
-
+}

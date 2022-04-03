@@ -23,9 +23,10 @@ class HomeViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         print(localData.postAuthorId)
         print(localData.postId)
-        print(localData.fireUserId)
+        print(localData.fireUserId) //user id
         
        
 
@@ -39,9 +40,20 @@ class HomeViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        
         initViewData()
     }
+    
+    
+    @IBAction func onAddTap(_ sender: UIBarButtonItem) {
+        if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SharePostViewController") as? SharePostViewController {
+            
+            if let navigator = self.navigationController{
+                navigator.pushViewController(viewController, animated: true)
+            }
+        }
+    }
+    
+    
     func generateCurrentTimeStamp () -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy_MM_dd_hh_mm_ss"
@@ -71,28 +83,25 @@ extension HomeViewController: UITableViewDataSource,UITableViewDelegate{
             cell.captionLbl.text = allUsersActitivtyList[indexPath.row].caption
             cell.userNameLbl.text = allUsersActitivtyList[indexPath.row].authorName
             cell.postID = self.allUsersActitivtyList[indexPath.row].postID
-            localData.postId = self.allUsersActitivtyList[indexPath.row].postID
+//            localData.postId = self.allUsersActitivtyList[indexPath.row].postID
             cell.authorID = self.allUsersActitivtyList[indexPath.row].authorID
-            localData.postAuthorId = self.allUsersActitivtyList[indexPath.row].authorID
+//            localData.postAuthorId = self.allUsersActitivtyList[indexPath.row].authorID
             cell.profilePic.contentMode = .scaleToFill
             cell.imagePosted.contentMode = .scaleToFill
-//            cell.imagePosted.image = nil
-            for i in 0..<usersList.count{
+            
+            
+            if let i = usersList.firstIndex(where: { $0.userId == self.allUsersActitivtyList[indexPath.row].authorID}){
                 
-                print(self.usersList[i].userWrapperData.profile.profilepic)
-                
-                if self.allUsersActitivtyList[indexPath.row].authorID == usersList[i].userId{
-                    if self.usersList[i].userWrapperData.profile.profilepic == ""{
-                        cell.profilePic.image =  UIImage(named: "baseline_account_circle_white_24pt")
-                    }else{
-                        
-                        
-                        cell.profilePic.downloadImage(from: self.usersList[i].userWrapperData.profile.profilepic)
-                    }
+                if usersList[i].userWrapperData.profile.profilepic == ""{
+                    cell.profilePic.image =  UIImage(named: "baseline_account_circle_white_24pt")
+                }else{
+
+                    cell.profilePic.downloadImage(from: self.usersList[i].userWrapperData.profile.profilepic)
                 }
+                
             }
             
-        
+          
             if let url = URL(string: self.allUsersActitivtyList[indexPath.row].image){
                 let data = try? Data(contentsOf: url)
                 if let imageData = data {
@@ -104,20 +113,25 @@ extension HomeViewController: UITableViewDataSource,UITableViewDelegate{
             
             cell.likeBtnCount.setTitle("\(allUsersActitivtyList[indexPath.row].likes) Likes", for: .normal)
             
-            let activityNode = ref.child("users").child(self.allUsersActitivtyList[indexPath.row].authorID).child("activity").child(self.allUsersActitivtyList[indexPath.row].postID).child("likeCount")
             
-            activityNode.observeSingleEvent(of: .value, with: { (snapshot) in
+            DispatchQueue.main.async {
+                let activityNode = self.ref.child("users").child(self.allUsersActitivtyList[indexPath.row].authorID).child("activity").child(self.allUsersActitivtyList[indexPath.row].postID).child("likeCount")
+
+                activityNode.observeSingleEvent(of: .value, with: { (snapshot) in
+
+                    if snapshot.hasChild(self.localData.fireUserId){
+                        print("true rooms exist")
+                        cell.likeBtn.tintColor = .red
+
+                    }else{
+                        print("false room doesn't exist")
+                        cell.likeBtn.tintColor = .black
+                    }
+                })
                 
-                if snapshot.hasChild(self.localData.fireUserId){
-                    print("true rooms exist")
-                    cell.likeBtn.tintColor = .red
-                    
-                }else{
-                    print("false room doesn't exist")
-                    cell.likeBtn.tintColor = .white
-                }
-            })
-            ref.removeAllObservers()
+                self.ref.removeAllObservers()
+            }
+            
             CurrentSession.getI().saveData()
             currentCell = cell
         }
@@ -137,7 +151,7 @@ extension HomeViewController: HomePageProtocol{
             let image =  self.allUsersActitivtyList[indexpath.row].image //UIImage(named: self.allUsersActitivtyList[indexpath.row].image)
             print(image)
             print(text)
-            let shareAll = [text , image ?? "" ] as [Any]
+            let shareAll = [text , image ] as [Any]
             let activityViewController = UIActivityViewController(activityItems: shareAll, applicationActivities: nil)
             activityViewController.popoverPresentationController?.sourceView = self.view
             self.present(activityViewController, animated: true, completion: nil)
@@ -167,7 +181,7 @@ extension HomeViewController: HomePageProtocol{
     }
     
     func hometableCell(cell: HomeTableViewCell) {
-        print("like")
+        print("likeeeeee")
         
         self.tableView.reloadData()
     }
@@ -220,14 +234,13 @@ extension HomeViewController{
                     }
                 }
             }
-            dump(users)
+            
             self.tableView.reloadData()
         }
         
         if localData.profileData.profilepic == ""{
             currentUserPic.image = UIImage(named: "baseline_account_circle_white_24pt")
             currentUserPic.image =   currentUserPic.image?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
-            
             
         }else{
             currentUserPic.downloadImage(from: self.localData.profileData.profilepic)

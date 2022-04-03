@@ -2,35 +2,35 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>DATABASE_URL</key>
+	<string>https://capstone-22743-default-rtdb.firebaseio.com/</string>
 	<key>CLIENT_ID</key>
-	<string>431569031403-oh5g51fiqo81f5rj9tgidp9v628qgfqt.apps.googleusercontent.com</string>
+	<string>1084707290292-aa23tb2k3ejrr0vp9f3grn89rdi4bg95.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.431569031403-oh5g51fiqo81f5rj9tgidp9v628qgfqt</string>
+	<string>com.googleusercontent.apps.1084707290292-aa23tb2k3ejrr0vp9f3grn89rdi4bg95</string>
 	<key>API_KEY</key>
-	<string>AIzaSyAy6Fdh-pIKbpYX_iXgDdW0bMu56AI19Uc</string>
+	<string>AIzaSyB4oH5fck0bsDuCiGF60lTdS_83AhO14TY</string>
 	<key>GCM_SENDER_ID</key>
-	<string>431569031403</string>
+	<string>1084707290292</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.dharam.InstagramClone</string>
+	<string>com.capstone</string>
 	<key>PROJECT_ID</key>
-	<string>mapsbhavesh</string>
+	<string>capstone-22743</string>
 	<key>STORAGE_BUCKET</key>
-	<string>mapsbhavesh.appspot.com</string>
+	<string>capstone-22743.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<false></false>
+	<false/>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<false></false>
+	<false/>
 	<key>IS_APPINVITE_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_GCM_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_SIGNIN_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:431569031403:ios:2b9785cca4f4a406e2aeae</string>
-	<key>DATABASE_URL</key>
-	<string>https://mapsbhavesh.firebaseio.com</string>
+	<string>1:1084707290292:ios:339e0d774bed77e0edabe1</string>
 </dict>
 </plist>
