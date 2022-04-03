@@ -175,6 +175,7 @@ extension ProfileViewController {
         
         //Post of all users
         firebaseHelper.getActivityData { (activitylist) in
+            self.activityList.removeAll()
             self.activityList = activitylist
             self.collectionView.reloadData()
         }

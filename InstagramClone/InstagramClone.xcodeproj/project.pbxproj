@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1BC9F83A27F92D9600A45D6E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1BC9F83927F92D9600A45D6E /* GoogleService-Info.plist */; };
+		1BC9F83C27F9452B00A45D6E /* MyExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC9F83B27F9452B00A45D6E /* MyExtensions.swift */; };
 		661402402448A73800BA262F /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6614023F2448A73800BA262F /* AboutViewController.swift */; };
 		66146C4D243294160058D20D /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66146C4C243294160058D20D /* HelpViewController.swift */; };
 		662F569F24180EF8009840CC /* SharePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 662F569E24180EF8009840CC /* SharePostViewController.swift */; };
@@ -58,6 +59,7 @@
 
 /* Begin PBXFileReference section */
 		1BC9F83927F92D9600A45D6E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1BC9F83B27F9452B00A45D6E /* MyExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyExtensions.swift; sourceTree = "<group>"; };
 		5000D4A2E02F15523DC91C5A /* Pods_InstagramClone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InstagramClone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6614023F2448A73800BA262F /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		66146C4C243294160058D20D /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 				66EF0C79242299E100010DB0 /* ImageResize.swift */,
 				66693B5724327BC200322F1A /* TextViewColor.swift */,
 				666F98F224492D6300A6E420 /* TimeInterval.swift */,
+				1BC9F83B27F9452B00A45D6E /* MyExtensions.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -416,6 +419,7 @@
 				66CFC2AC23F36E4100601EC9 /* BasePostModel.swift in Sources */,
 				664CAC732421C7A90007D119 /* Constants.swift in Sources */,
 				66C3B2E2241FFA0B002A910A /* CommentViewController.swift in Sources */,
+				1BC9F83C27F9452B00A45D6E /* MyExtensions.swift in Sources */,
 				66693B5824327BC200322F1A /* TextViewColor.swift in Sources */,
 				66F7DB5A24197A69000AE753 /* ServerImageFetcher.swift in Sources */,
 				66C3B2E0241FDF92002A910A /* Protocol.swift in Sources */,

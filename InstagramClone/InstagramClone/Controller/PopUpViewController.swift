@@ -42,6 +42,7 @@ class PopUpViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.definesPresentationContext = true
     }
     
     override func viewWillAppear(_ animated: Bool) {

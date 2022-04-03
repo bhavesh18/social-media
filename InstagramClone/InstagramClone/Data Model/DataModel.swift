@@ -437,7 +437,7 @@ class UserActivityData: BaseData{
     
     var caption = ""
     var image = ""
-    var likeCount = [String]()
+    var likeCount = [String:Any]()
     var postID = ""
     var peopleWhoLike = [String]()
     var authorName = ""

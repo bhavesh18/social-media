@@ -110,6 +110,7 @@ extension SharePostViewController {
                                 "image" : url.absoluteString,
                                 "likes" : 0,
                                 "caption":self.captionTxtView.text!,
+                                "likeCount": ["":""],
                                 "authorName" : self.localData.profileData.username,
                                 "postTime":timeInterval,
                                 "postID" : key!] as [String : Any]

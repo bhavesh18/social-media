@@ -28,11 +28,12 @@ class HomeViewController: BaseViewController {
         print(localData.postId)
         print(localData.fireUserId) //user id
         
-       
-
-       formatter.dateFormat = "MM-dd-yyyy HH:mm"
+        CurrentSession.getI().isLiking = false
+        CurrentSession.getI().saveData()
+        
+        formatter.dateFormat = "MM-dd-yyyy HH:mm"
         let result1 = formatter.string(from: date)
-
+        
         print(result1)
         
     }
@@ -78,61 +79,48 @@ extension HomeViewController: UITableViewDataSource,UITableViewDelegate{
         var currentCell = UITableViewCell()
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: "HomeTableViewCell", for: indexPath) as? HomeTableViewCell{
-         
+            
             cell.delegate = self
+            cell.index = indexPath.row
             cell.captionLbl.text = allUsersActitivtyList[indexPath.row].caption
             cell.userNameLbl.text = allUsersActitivtyList[indexPath.row].authorName
             cell.postID = self.allUsersActitivtyList[indexPath.row].postID
-//            localData.postId = self.allUsersActitivtyList[indexPath.row].postID
+            //            localData.postId = self.allUsersActitivtyList[indexPath.row].postID
             cell.authorID = self.allUsersActitivtyList[indexPath.row].authorID
-//            localData.postAuthorId = self.allUsersActitivtyList[indexPath.row].authorID
-            cell.profilePic.contentMode = .scaleToFill
-            cell.imagePosted.contentMode = .scaleToFill
-            
+            //            localData.postAuthorId = self.allUsersActitivtyList[indexPath.row].authorID
+            cell.profilePic.contentMode = .scaleAspectFill
+            cell.imagePosted.contentMode = .scaleAspectFill
+//            cell.likeBtn.tintColor = .black
             
             if let i = usersList.firstIndex(where: { $0.userId == self.allUsersActitivtyList[indexPath.row].authorID}){
                 
                 if usersList[i].userWrapperData.profile.profilepic == ""{
                     cell.profilePic.image =  UIImage(named: "baseline_account_circle_white_24pt")
                 }else{
+                    
+                    cell.profilePic.load(urlStr: self.usersList[i].userWrapperData.profile.profilepic)
 
-                    cell.profilePic.downloadImage(from: self.usersList[i].userWrapperData.profile.profilepic)
                 }
                 
             }
             
-          
-            if let url = URL(string: self.allUsersActitivtyList[indexPath.row].image){
-                let data = try? Data(contentsOf: url)
-                if let imageData = data {
-                    let image = UIImage(data: imageData)
-                    
-                    cell.imagePosted.image = image
-                }
-            }
+            cell.imagePosted.image = nil
+            cell.imagePosted.load(urlStr: self.allUsersActitivtyList[indexPath.row].image)
             
             cell.likeBtnCount.setTitle("\(allUsersActitivtyList[indexPath.row].likes) Likes", for: .normal)
             
             
-            DispatchQueue.main.async {
-                let activityNode = self.ref.child("users").child(self.allUsersActitivtyList[indexPath.row].authorID).child("activity").child(self.allUsersActitivtyList[indexPath.row].postID).child("likeCount")
-
-                activityNode.observeSingleEvent(of: .value, with: { (snapshot) in
-
-                    if snapshot.hasChild(self.localData.fireUserId){
-                        print("true rooms exist")
-                        cell.likeBtn.tintColor = .red
-
-                    }else{
-                        print("false room doesn't exist")
-                        cell.likeBtn.tintColor = .black
-                    }
-                })
-                
-                self.ref.removeAllObservers()
-            }
+            let likedByUsersId = self.allUsersActitivtyList[indexPath.row].likeCount.map({$0.key})
             
-            CurrentSession.getI().saveData()
+            var isLiked = false
+            for liked in likedByUsersId{
+                if(liked == self.localData.fireUserId){
+                    isLiked = true
+                }
+            }
+            print("cell: ", indexPath.row ,isLiked ? " MATCHED" : "No MATCH")
+            cell.likeBtn.tintColor = isLiked ? .red : .black
+            
             currentCell = cell
         }
         return currentCell
@@ -148,9 +136,8 @@ extension HomeViewController: HomePageProtocol{
         if let indexpath = tableView.indexPath(for: cell){
             
             let text = allUsersActitivtyList[indexpath.row].caption
-            let image =  self.allUsersActitivtyList[indexpath.row].image //UIImage(named: self.allUsersActitivtyList[indexpath.row].image)
-            print(image)
-            print(text)
+            let image =  self.allUsersActitivtyList[indexpath.row].image
+            
             let shareAll = [text , image ] as [Any]
             let activityViewController = UIActivityViewController(activityItems: shareAll, applicationActivities: nil)
             activityViewController.popoverPresentationController?.sourceView = self.view
@@ -161,15 +148,14 @@ extension HomeViewController: HomePageProtocol{
     
     func commentTableCell(cell: HomeTableViewCell, index: Int) {
         
-        
-        
         if let indexpath = tableView.indexPath(for: cell){
             print("comment")
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "PopUpViewController") as! PopUpViewController
             vc.postID = self.allUsersActitivtyList[indexpath.row].postID
             vc.authorID = self.allUsersActitivtyList[indexpath.row].authorID
             
-            vc.modalPresentationStyle = .fullScreen
+            vc.modalPresentationStyle = .overCurrentContext
+            vc.modalTransitionStyle = .crossDissolve
             self.present(vc, animated: true, completion: nil)
         }
     }
@@ -197,14 +183,17 @@ class CollectionViewCell: UICollectionViewCell{
     
     
 }
+
 class TableviewCell: UITableViewCell {
     
 }
+
 extension HomeViewController{
     
     // all functions
     
     func initViewData(){
+        
         self.navigationItem.title = "Social Media"
         
         tableView.delegate = self
@@ -220,21 +209,39 @@ extension HomeViewController{
         self.tableView.register(nib1, forCellReuseIdentifier: "HomeTableViewCell")
         
         firebaseHelper.getUsers { (users) in
-            
+//            self.showLoader()
             if let data = users{
-                
-                self.usersList = data
+                print("List Users updated########===")
+
+                self.usersList.removeAll()
                 self.allUsersActitivtyList.removeAll()
+                self.usersList = data
+
                 for item in 0..<self.usersList.count{
                     let data = self.usersList[item].userWrapperData
-                    
+                                                            
                     for (_,value) in data.activity{
+                        print(value.likeCount)
                         self.allUsersActitivtyList.append(value)
                         ANLoader.hide()
                     }
+                    self.allUsersActitivtyList = self.allUsersActitivtyList.sorted(by: { $0.postTime > $1.postTime })
+
                 }
             }
             
+//            if(CurrentSession.getI().isLiking){
+//                DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+//                    CurrentSession.getI().isLiking = false
+//                    CurrentSession.getI().saveData()
+//                    print("Reloading tableview data stopped")
+//                }
+//            }else{
+//                print("Reloading tableview data")
+//                self.tableView.reloadData()
+//            }
+            
+//            self.hideLoader()
             self.tableView.reloadData()
         }
         
@@ -247,14 +254,14 @@ extension HomeViewController{
             
         }
         currentUserPic.contentMode = .scaleToFill
-
+        
     }
-    
     
 }
 
 
 extension Date {
+    
     func timeAgoDisplay() -> String {
         let date = Date().addingTimeInterval(self.timeIntervalSinceNow)
         let formatter = RelativeDateTimeFormatter()
@@ -262,3 +269,4 @@ extension Date {
         return formatter.localizedString(for: date, relativeTo: Date())
     }
 }
+

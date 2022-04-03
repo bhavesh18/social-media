@@ -32,6 +32,7 @@ class CurrentSession {
     var localData = LocalData()
     var token = ""
     var gameScore = ""
+    var isLiking = false
 
     static func getI() -> CurrentSession {
         
@@ -63,6 +64,7 @@ class CurrentSession {
             gameScore = data
         }
      
+        self.isLiking = UserDefaults.standard.bool(forKey: "isLiking")
 
         
         if profile == nil {
@@ -74,7 +76,7 @@ class CurrentSession {
     }
     
     func saveData() {
-        print(localData.toJSONString())
+//        print(localData.toJSONString())
         let ud = UserDefaults.standard
         ud.set(NSKeyedArchiver.archivedData(withRootObject: profile), forKey: KEY_PROFILE)
         ud.set(sessionId, forKey: KEY_SESSION)
@@ -83,6 +85,7 @@ class CurrentSession {
        
         ud.set(token, forKey: KEY_Token)
         ud.set(gameScore, forKey: Key_GameScore)
+        ud.set(self.isLiking, forKey: "isLiking")
     }
 
     func isUserLoginIn() -> Bool {

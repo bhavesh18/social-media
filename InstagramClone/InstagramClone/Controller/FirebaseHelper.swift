@@ -30,7 +30,7 @@ class FireBaseHelper{
         FireBaseHelper.ref.child("users").queryOrderedByKey().observe(.value) { (snapshot) in
             
             if let snapshot = snapshot.children.allObjects as? [DataSnapshot]{
-                print(snapshot.count)
+//                print(snapshot.count)
                 for snap in snapshot{
                     
                     if let userList = snap.value as? [String: Any]{
@@ -72,7 +72,7 @@ class FireBaseHelper{
     func getActivityData(onCompletion: @escaping ([UserActivityData]) -> ()){
        
         let id = CurrentSession.getI().localData.fireUserId
-        print(CurrentSession.getI().localData.snapshot)
+//        print(CurrentSession.getI().localData.snapshot)
         if CurrentSession.getI().localData.snapshot <= 0{
             //   return
         }
@@ -81,10 +81,10 @@ class FireBaseHelper{
             var arr:[UserActivityData] = []
             
             if let snapshot = snapshot.children.allObjects as? [DataSnapshot]{
-                print(snapshot.count)
+//                print(snapshot.count)
                 
                 for snap in snapshot{
-                    print(snap.key)
+//                    print(snap.key)
                     if let data = snap.value as? [String: Any]{
                        
                         let mappedData = Mapper<UserActivityData>().mapArray(JSONArray: [data])
@@ -117,6 +117,7 @@ class FireBaseHelper{
        
         FireBaseHelper.ref.child("users").queryOrderedByKey().observe(.value) { (snapshot) in
 //            ANLoader.showLoading()
+            
             if let snapshot = snapshot.children.allObjects as? [DataSnapshot]{
                 
                 var list:[UserRootdata] = []
@@ -167,10 +168,10 @@ class FireBaseHelper{
             var arr:[CommentData] = []
             
             if let snapshot = snapshot.children.allObjects as? [DataSnapshot]{
-                print(snapshot.count)
+//                print(snapshot.count)
                 
                 for snap in snapshot{
-                    print(snap.key)
+//                    print(snap.key)
                     if let data = snap.value as? [String: Any]{
                         let mappedData = Mapper<CommentData>().mapArray(JSONArray: [data])
                         
