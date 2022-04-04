@@ -52,7 +52,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2FS-YR-Z9e">
-                                                            <rect key="frame" x="363" y="15.666666666666668" width="30" height="24.000000000000004"/>
+                                                            <rect key="frame" x="363" y="3.6666666666666643" width="30" height="48"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="30" id="uxO-Ia-FOS"/>
                                                             </constraints>
@@ -1617,13 +1617,14 @@ Continue reading for strategies and examples of great app demos below or jump to
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8qP-XK-FOQ">
-                                <rect key="frame" x="10" y="10" width="394" height="200"/>
+                                <rect key="frame" x="0.0" y="10" width="414" height="200"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" semanticContentAttribute="forceLeftToRight" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LogoMakr_35539w" translatesAutoresizingMaskIntoConstraints="NO" id="sZy-W5-Z91">
-                                        <rect key="frame" x="0.0" y="0.0" width="394" height="200"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
+                                        <color key="backgroundColor" red="0.8883211017" green="0.1358101666" blue="0.26733484860000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.89228779079999998" green="0.1356621683" blue="0.26712948079999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="sZy-W5-Z91" firstAttribute="leading" secondItem="8qP-XK-FOQ" secondAttribute="leading" id="JLu-3E-WHm"/>
                                     <constraint firstAttribute="bottom" secondItem="sZy-W5-Z91" secondAttribute="bottom" id="JMm-H6-3xP"/>
@@ -1632,41 +1633,47 @@ Continue reading for strategies and examples of great app demos below or jump to
                                     <constraint firstItem="sZy-W5-Z91" firstAttribute="top" secondItem="8qP-XK-FOQ" secondAttribute="top" id="uRs-Uf-ZoN"/>
                                 </constraints>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="3t8-3t-jmN">
-                                <rect key="frame" x="10" y="250" width="394" height="426"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="3t8-3t-jmN">
+                                <rect key="frame" x="10" y="275" width="394" height="342"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GI5-vy-q9o">
-                                        <rect key="frame" x="0.0" y="0.0" width="394" height="52.333333333333336"/>
-                                        <color key="backgroundColor" red="0.20059677958488464" green="0.21050041913986206" blue="0.27451774477958679" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="394" height="60"/>
+                                        <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="9qj-dd-cvY"/>
+                                        </constraints>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
-                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="12"/>
+                                                <real key="value" value="10"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KRE-lR-2wg">
-                                        <rect key="frame" x="0.0" y="62.333333333333314" width="394" height="52.333333333333343"/>
-                                        <color key="backgroundColor" red="0.20059677958488464" green="0.21050041913986206" blue="0.27451774477958679" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <rect key="frame" x="0.0" y="80" width="394" height="60"/>
+                                        <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="ZiC-Dd-zvj"/>
+                                        </constraints>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
-                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="12"/>
+                                                <real key="value" value="10"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j4X-b9-d6k">
-                                        <rect key="frame" x="0.0" y="119.66666666666669" width="394" height="0.0"/>
+                                        <rect key="frame" x="0.0" y="150" width="394" height="0.0"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="20"/>
                                         <state key="normal" title="Forgot Password?">
@@ -1677,8 +1684,11 @@ Continue reading for strategies and examples of great app demos below or jump to
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V9C-Xk-eUZ">
-                                        <rect key="frame" x="0.0" y="124.66666666666667" width="394" height="52.333333333333329"/>
+                                        <rect key="frame" x="0.0" y="160" width="394" height="60"/>
                                         <color key="backgroundColor" red="0.82136136289999995" green="0.22715559599999999" blue="0.28626030679999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="upg-Ll-ByC"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="20"/>
                                         <state key="normal" title="LogIn">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1692,14 +1702,14 @@ Continue reading for strategies and examples of great app demos below or jump to
                                             <action selector="loginBtnTapped:" destination="c09-H5-F2q" eventType="touchUpInside" id="V5v-3b-h9c"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uy0-QA-nCG">
-                                        <rect key="frame" x="0.0" y="187" width="394" height="52"/>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uy0-QA-nCG">
+                                        <rect key="frame" x="0.0" y="230" width="394" height="0.0"/>
                                         <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="20"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G5n-NR-iZS">
-                                        <rect key="frame" x="0.0" y="249.00000000000003" width="394" height="52.333333333333343"/>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G5n-NR-iZS">
+                                        <rect key="frame" x="0.0" y="230" width="394" height="0.0"/>
                                         <color key="backgroundColor" red="0.3146401942" green="0.56099992990000003" blue="0.88631099459999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="20"/>
                                         <state key="normal" title="Login with Facebook">
@@ -1715,14 +1725,17 @@ Continue reading for strategies and examples of great app demos below or jump to
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't Have an Account ? Click Below" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XQ8-Ry-wUs">
-                                        <rect key="frame" x="0.0" y="311.33333333333337" width="394" height="52.333333333333314"/>
+                                        <rect key="frame" x="0.0" y="240" width="394" height="22"/>
                                         <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="20"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wgn-6S-OmB">
-                                        <rect key="frame" x="0.0" y="373.66666666666663" width="394" height="52.333333333333314"/>
+                                        <rect key="frame" x="0.0" y="282" width="394" height="60"/>
                                         <color key="backgroundColor" red="0.82136136289999995" green="0.22715559599999999" blue="0.28626030679999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="JAR-gl-p41"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="20"/>
                                         <state key="normal" title="Signup">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1738,17 +1751,26 @@ Continue reading for strategies and examples of great app demos below or jump to
                                     </button>
                                 </subviews>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h3R-fw-Hq3">
+                                <rect key="frame" x="10" y="230" width="394" height="25"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Bnn-ZM-qXc"/>
-                        <color key="backgroundColor" red="0.11021638659999999" green="0.1167700216" blue="0.160789758" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="3t8-3t-jmN" firstAttribute="top" secondItem="8qP-XK-FOQ" secondAttribute="bottom" constant="40" id="3Uu-6m-Hba"/>
+                            <constraint firstItem="h3R-fw-Hq3" firstAttribute="leading" secondItem="Bnn-ZM-qXc" secondAttribute="leading" constant="10" id="1K9-oh-ba4"/>
                             <constraint firstItem="8qP-XK-FOQ" firstAttribute="top" secondItem="Bnn-ZM-qXc" secondAttribute="top" constant="10" id="3Yn-4r-sqb"/>
-                            <constraint firstItem="Bnn-ZM-qXc" firstAttribute="trailing" secondItem="8qP-XK-FOQ" secondAttribute="trailing" constant="10" id="ZSf-O8-rSM"/>
+                            <constraint firstItem="Bnn-ZM-qXc" firstAttribute="trailing" secondItem="h3R-fw-Hq3" secondAttribute="trailing" constant="10" id="V5B-gT-0Ls"/>
+                            <constraint firstItem="h3R-fw-Hq3" firstAttribute="top" secondItem="8qP-XK-FOQ" secondAttribute="bottom" constant="20" id="YQU-iE-ede"/>
+                            <constraint firstItem="Bnn-ZM-qXc" firstAttribute="trailing" secondItem="8qP-XK-FOQ" secondAttribute="trailing" id="ZSf-O8-rSM"/>
                             <constraint firstItem="3t8-3t-jmN" firstAttribute="leading" secondItem="Bnn-ZM-qXc" secondAttribute="leading" constant="10" id="a89-cH-VNe"/>
                             <constraint firstItem="Bnn-ZM-qXc" firstAttribute="trailing" secondItem="3t8-3t-jmN" secondAttribute="trailing" constant="10" id="eh0-jL-4rI"/>
-                            <constraint firstItem="8qP-XK-FOQ" firstAttribute="leading" secondItem="Bnn-ZM-qXc" secondAttribute="leading" constant="10" id="nCY-Rh-j17"/>
-                            <constraint firstAttribute="bottom" secondItem="3t8-3t-jmN" secondAttribute="bottom" constant="40" id="req-b6-j1b"/>
+                            <constraint firstItem="8qP-XK-FOQ" firstAttribute="leading" secondItem="Bnn-ZM-qXc" secondAttribute="leading" id="nCY-Rh-j17"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="3t8-3t-jmN" secondAttribute="bottom" constant="40" id="req-b6-j1b"/>
+                            <constraint firstItem="3t8-3t-jmN" firstAttribute="top" secondItem="h3R-fw-Hq3" secondAttribute="bottom" constant="20" id="u4q-h2-hEA"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="9se-zQ-9ZE"/>
@@ -1774,6 +1796,7 @@ Continue reading for strategies and examples of great app demos below or jump to
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" semanticContentAttribute="forceLeftToRight" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LogoMakr_35539w" translatesAutoresizingMaskIntoConstraints="NO" id="Ofk-oG-yE6">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
+                                        <color key="backgroundColor" red="0.89228779079999998" green="0.1356621683" blue="0.26712948079999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1786,62 +1809,74 @@ Continue reading for strategies and examples of great app demos below or jump to
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qZQ-AY-oxu">
-                                <rect key="frame" x="10" y="250" width="394" height="480"/>
+                                <rect key="frame" x="10" y="240" width="394" height="490"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Y6F-GB-Dm2">
                                         <rect key="frame" x="0.0" y="0.0" width="394" height="480"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rsb-qb-7qD">
                                                 <rect key="frame" x="0.0" y="0.0" width="394" height="60"/>
-                                                <color key="backgroundColor" red="0.20056024193763733" green="0.21058991551399231" blue="0.27059575915336609" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="60" id="99N-7w-NK7"/>
                                                 </constraints>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
-                                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="10"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Full Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9yq-fb-WUQ">
                                                 <rect key="frame" x="0.0" y="70" width="394" height="60"/>
-                                                <color key="backgroundColor" red="0.20056024189999999" green="0.2105899155" blue="0.27059575920000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="60" id="euN-Ue-VKs"/>
                                                 </constraints>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
-                                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="10"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vPM-Fi-APr">
                                                 <rect key="frame" x="0.0" y="140" width="394" height="60"/>
-                                                <color key="backgroundColor" red="0.20056024193763733" green="0.21058991551399231" blue="0.27059575915336609" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
+                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
-                                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="10"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XKS-M1-fhp">
                                                 <rect key="frame" x="0.0" y="210" width="394" height="60"/>
-                                                <color key="backgroundColor" red="0.20056024193763733" green="0.21058991551399231" blue="0.27059575915336609" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
+                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
-                                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="10"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
@@ -1852,6 +1887,11 @@ Continue reading for strategies and examples of great app demos below or jump to
                                                 <state key="normal" title="Sign Up">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="signUpBtnTapped:" destination="PsG-dc-AxY" eventType="touchUpInside" id="UiY-pR-Kfs"/>
                                                 </connections>
@@ -1859,7 +1899,7 @@ Continue reading for strategies and examples of great app demos below or jump to
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Already Have an Account ? Click Below" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n25-8K-HWf">
                                                 <rect key="frame" x="0.0" y="350" width="394" height="60"/>
                                                 <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="20"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R6C-ly-7ye">
@@ -1869,6 +1909,11 @@ Continue reading for strategies and examples of great app demos below or jump to
                                                 <state key="normal" title="LogIn">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="backToLogin:" destination="PsG-dc-AxY" eventType="touchUpInside" id="Zcn-KQ-pcb"/>
                                                     <action selector="loginBtnTapped:" destination="c09-H5-F2q" eventType="touchUpInside" id="s8L-du-flY"/>
@@ -1877,19 +1922,19 @@ Continue reading for strategies and examples of great app demos below or jump to
                                         </subviews>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" red="0.27508366107940674" green="0.28505006432533264" blue="0.34902793169021606" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="Y6F-GB-Dm2" firstAttribute="leading" secondItem="qZQ-AY-oxu" secondAttribute="leading" id="GvE-vG-BnJ"/>
                                     <constraint firstAttribute="trailing" secondItem="Y6F-GB-Dm2" secondAttribute="trailing" id="YYS-aL-yYN"/>
                                     <constraint firstItem="Y6F-GB-Dm2" firstAttribute="top" secondItem="qZQ-AY-oxu" secondAttribute="top" id="wTh-3Z-Dpd"/>
-                                    <constraint firstAttribute="bottom" secondItem="Y6F-GB-Dm2" secondAttribute="bottom" id="wh9-ph-u2i"/>
+                                    <constraint firstAttribute="bottom" secondItem="Y6F-GB-Dm2" secondAttribute="bottom" constant="10" id="wh9-ph-u2i"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="mq5-EB-vDg"/>
-                        <color key="backgroundColor" red="0.11021638659999999" green="0.1167700216" blue="0.160789758" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="qZQ-AY-oxu" firstAttribute="top" secondItem="dKM-t7-S4d" secondAttribute="bottom" constant="40" id="MTt-7V-Cs9"/>
+                            <constraint firstItem="qZQ-AY-oxu" firstAttribute="top" secondItem="dKM-t7-S4d" secondAttribute="bottom" constant="30" id="MTt-7V-Cs9"/>
                             <constraint firstItem="mq5-EB-vDg" firstAttribute="trailing" secondItem="dKM-t7-S4d" secondAttribute="trailing" id="bcf-aB-3aE"/>
                             <constraint firstItem="dKM-t7-S4d" firstAttribute="top" secondItem="mq5-EB-vDg" secondAttribute="top" constant="10" id="cz4-Eg-DtJ"/>
                             <constraint firstItem="mq5-EB-vDg" firstAttribute="trailing" secondItem="qZQ-AY-oxu" secondAttribute="trailing" constant="10" id="jxR-71-lMJ"/>
@@ -2267,7 +2312,7 @@ Continue reading for strategies and examples of great app demos below or jump to
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reset Password" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="twu-bm-03Y">
                                         <rect key="frame" x="143.33333333333334" y="5" width="127.66666666666666" height="50"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xdu-lB-xyD">
@@ -2282,7 +2327,7 @@ Continue reading for strategies and examples of great app demos below or jump to
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.2005967796" green="0.2105004191" blue="0.27451774480000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="twu-bm-03Y" firstAttribute="leading" secondItem="xdu-lB-xyD" secondAttribute="trailing" constant="30" id="2Zb-E1-vTU"/>
                                     <constraint firstAttribute="bottom" secondItem="twu-bm-03Y" secondAttribute="bottom" constant="5" id="5sL-L1-IKl"/>
@@ -2296,8 +2341,8 @@ Continue reading for strategies and examples of great app demos below or jump to
                                 </constraints>
                             </view>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cnN-UR-qoY">
-                                <rect key="frame" x="20" y="340.66666666666669" width="374" height="55"/>
-                                <color key="backgroundColor" red="0.27504965660000003" green="0.2851343751" blue="0.34510585669999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <rect key="frame" x="20" y="160" width="374" height="55"/>
+                                <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="zAb-jS-h2m"/>
                                 </constraints>
@@ -2308,10 +2353,13 @@ Continue reading for strategies and examples of great app demos below or jump to
                                     <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
                                         <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WoG-k4-1Oy">
-                                <rect key="frame" x="30" y="425.66666666666669" width="354" height="55"/>
+                                <rect key="frame" x="30" y="245" width="354" height="55"/>
                                 <color key="backgroundColor" red="0.82136136289999995" green="0.22715559599999999" blue="0.28626030679999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="s1k-cR-x4R"/>
@@ -2326,10 +2374,11 @@ Continue reading for strategies and examples of great app demos below or jump to
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="pcX-Fk-3xV"/>
-                        <color key="backgroundColor" red="0.11021638659999999" green="0.1167700216" blue="0.160789758" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="pcX-Fk-3xV" firstAttribute="trailing" secondItem="cnN-UR-qoY" secondAttribute="trailing" constant="20" id="4Us-2o-Dkp"/>
                             <constraint firstItem="pcX-Fk-3xV" firstAttribute="trailing" secondItem="WoG-k4-1Oy" secondAttribute="trailing" constant="30" id="4c7-Ni-4ek"/>
+                            <constraint firstItem="cnN-UR-qoY" firstAttribute="top" secondItem="9uc-72-l3l" secondAttribute="bottom" constant="100" id="BK4-Mm-XPr"/>
                             <constraint firstItem="9uc-72-l3l" firstAttribute="top" secondItem="pcX-Fk-3xV" secondAttribute="top" id="Fuy-2X-fuK"/>
                             <constraint firstItem="cnN-UR-qoY" firstAttribute="centerX" secondItem="l7h-vh-SjQ" secondAttribute="centerX" id="JUh-yQ-NcH"/>
                             <constraint firstItem="WoG-k4-1Oy" firstAttribute="leading" secondItem="pcX-Fk-3xV" secondAttribute="leading" constant="30" id="M1y-kp-vea"/>
@@ -2337,7 +2386,6 @@ Continue reading for strategies and examples of great app demos below or jump to
                             <constraint firstItem="WoG-k4-1Oy" firstAttribute="top" secondItem="cnN-UR-qoY" secondAttribute="bottom" constant="30" id="XDd-FE-jzN"/>
                             <constraint firstItem="cnN-UR-qoY" firstAttribute="leading" secondItem="pcX-Fk-3xV" secondAttribute="leading" constant="20" id="YXQ-Po-Sr6"/>
                             <constraint firstItem="9uc-72-l3l" firstAttribute="leading" secondItem="pcX-Fk-3xV" secondAttribute="leading" id="ePp-y4-hcm"/>
-                            <constraint firstItem="cnN-UR-qoY" firstAttribute="centerY" secondItem="l7h-vh-SjQ" secondAttribute="centerY" id="nwq-Ae-9iH"/>
                         </constraints>
                     </view>
                     <connections>
@@ -2640,7 +2688,7 @@ Continue reading for strategies and examples of great app demos below or jump to
     <resources>
         <image name="LogoMakr_35539w" width="400" height="330"/>
         <image name="baseline_account_circle_white_24pt" width="24" height="24"/>
-        <image name="baseline_drag_indicator_black_24dp" width="24" height="24"/>
+        <image name="baseline_drag_indicator_black_24dp" width="48" height="48"/>
         <image name="baseline_home_white_24pt" width="24" height="24"/>
         <image name="baseline_search_white_24pt" width="24" height="24"/>
         <image name="circle.fill" catalog="system" width="128" height="121"/>
@@ -2658,7 +2706,7 @@ Continue reading for strategies and examples of great app demos below or jump to
         <image name="power" catalog="system" width="128" height="124"/>
         <image name="square.grid.3x2" catalog="system" width="128" height="80"/>
         <namedColor name="transparent">
-            <color red="0.0" green="0.0" blue="0.0" alpha="0.26165837049484253" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.0" blue="0.0" alpha="0.26199999451637268" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="darkTextColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

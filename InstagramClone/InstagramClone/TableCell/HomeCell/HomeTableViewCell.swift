@@ -100,80 +100,9 @@ class HomeTableViewCell: UITableViewCell {
                 
             }
             
-            
-            
-            //            let activityNode1 = self.ref.child("users").child(self.authorID).child("activity").child(self.postID)
-            //
-            //            if(doLike){
-            //                //like
-            //                let data = [self.localData.fireUserId : ["authorid":self.localData.fireUserId,"authorNameWhoLike":self.localData.userName]]
-            //                activityNode1.child("likeCount").setValue(data)
-            //            }else{
-            //                //unlike
-            //                activityNode1.child("likeCount").child(self.localData.userName).removeValue()
-            //            }
-            
             //For liking the post
             let activityNode = self.ref.child("users").child(self.authorID).child("activity").child(self.postID)
             
-            //            self.ref.child("users").child(self.authorID).child("activity").child(self.postID).observeSingleEvent(of: .value, with: { (snapshot) in
-            //
-            //                if let _ = snapshot.value as? [String : AnyObject] {
-            //
-            //                    if let properties = snapshot.value as? [String : AnyObject] {
-            //
-            //                        //                        if self.ifAlreadyLiked == false{
-            //                        if(doLike){
-            //
-            //                            if let likes = properties["likeCount"] as? [String:AnyObject]{
-            //                                print(likes.count)
-            //                                activityNode.child("likeCount").child(self.localData.fireUserId).setValue(["authorid":self.localData.fireUserId,"authorNameWhoLike":self.localData.userName])
-            //
-            //                                self.ifAlreadyLiked = true
-            //                            }else{
-            //                                activityNode.child("likeCount").child(self.localData.fireUserId).setValue(["authorid":self.localData.fireUserId,"authorNameWhoLike":self.localData.userName])
-            //
-            //                            }
-            //                            self.likedCell?(self.index)
-            //                        }else{
-            //
-            //                            //For unlike the  post
-            //
-            //                            let activityNode = self.ref.child("users").child(self.authorID).child("activity").child(self.postID)
-            //
-            //                            activityNode.observeSingleEvent(of: .value, with: { (snapshot) in
-            //
-            //                                if let properties = snapshot.value as? [String : AnyObject] {
-            //                                    if let _ = properties["likeCount"] as? [String : AnyObject] {
-            //                                        //                                    print(peopleWhoLike)
-            //                                        activityNode.child("likeCount").child(self.localData.fireUserId).removeValue(completionBlock: { (error, reff) in
-            //                                            if error == nil {
-            //                                                activityNode.observeSingleEvent(of: .value, with: { (snap) in
-            //                                                    if let prop = snap.value as? [String : AnyObject] {
-            //                                                        if let _ = prop["likeCount"] as? [String : AnyObject] {
-            //                                                            //                                                            print(likes)
-            //
-            //                                                            activityNode.child("likeCount").updateChildValues(["": ""])
-            //
-            //
-            //                                                        }else {
-            //                                                            activityNode.child("likeCount").updateChildValues(["": ""])
-            //
-            //                                                        }
-            //                                                    }
-            //                                                })
-            //                                            }
-            //                                        })
-            //                                    }
-            //                                }
-            //                            })
-            //                            self.likedCell?(self.index)
-            //                            self.ref.removeAllObservers()
-            //                            self.ifAlreadyLiked = false
-            //                        }
-            //                    }
-            //                }
-            //            })
             
             activityNode.child("likeCount").observe(.value, with: { (snapshot: DataSnapshot!) in
                 print("Got snapshot");

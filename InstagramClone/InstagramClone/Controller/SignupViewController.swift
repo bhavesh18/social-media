@@ -70,39 +70,57 @@ extension SignupViewController{
     }
     
     
+    func isValidInput() -> Bool{
+        var isValid = false
+        if(usernameTxtField.text == "" || fullnameTxtfield.text == "" || emailTxtField.text == "" || passwordTxtField.text == ""){
+            isValid = false
+        }else if(emailTxtField.text != "" && !emailTxtField.text!.isValidEmail()){
+            self.loginAlert(title: "Invalid Email", msg: "")
+            isValid = false
+        }else{
+            isValid = true
+        }
+        return isValid
+    }
+    
     // This function will create new user after Checking the database
     
     func checkDataExist(){
         
-        FireBaseHelper.ref.child("users").queryOrderedByKey().observe(.value) { (snapshot) in
+        if(isValidInput()){
             
-            if let snapshot = snapshot.children.allObjects as? [DataSnapshot]{
-                print(snapshot.count)
-                for snap in snapshot{
-                    if let userList = snap.value as? [String: Any]{
-                        let mappedData = Mapper<UserWrapperData>().mapArray(JSONArray: [userList])
-                        // Email Comparison
-                        
-                        self.localData.userWrapperData.append(contentsOf: mappedData)
-                        if mappedData.contains(where: { $0.profile.email == self.emailTxtField.text }) {
-                            self.userExist = true
-                            break
+            FireBaseHelper.ref.child("users").queryOrderedByKey().observe(.value) { (snapshot) in
+                
+                if let snapshot = snapshot.children.allObjects as? [DataSnapshot]{
+                    print(snapshot.count)
+                    for snap in snapshot{
+                        if let userList = snap.value as? [String: Any]{
+                            let mappedData = Mapper<UserWrapperData>().mapArray(JSONArray: [userList])
+                            // Email Comparison
+                            
+                            self.localData.userWrapperData.append(contentsOf: mappedData)
+                            if mappedData.contains(where: { $0.profile.email == self.emailTxtField.text }) {
+                                self.userExist = true
+                                break
+                            }
+                            
+                            if mappedData.contains(where: { $0.profile.username == self.usernameTxtField.text }) {
+                                self.userExist = true
+                                break
+                            }
+                            print("kkk1")
                         }
-                        
-                        if mappedData.contains(where: { $0.profile.username == self.usernameTxtField.text }) {
-                            self.userExist = true
-                            break
-                        }
-                        print("kkk1")
+                        print("kkk2")
                     }
-                    print("kkk2")
+                    print("kkk3")
                 }
-                print("kkk3")
+                print("Putting sign up here called again after creating user because of for loop")
+                if self.isSignUp == false{
+                    self.handleSignUp()
+                }
             }
-            print("Putting sign up here called again after creating user because of for loop")
-            if self.isSignUp == false{
-                self.handleSignUp()
-            }
+        }else{
+            
         }
     }
     
@@ -132,7 +150,8 @@ extension SignupViewController{
             }
             
             return
-           
+            
         }
     }
+    
 }

@@ -41,7 +41,9 @@ extension LoginViewController{
     
     @IBAction func loginBtnTapped(_ sender: Any) {
         if isEmpty().empty{
-            self.loginAlert(title: "Invalid Credentials", msg: "Enter Correct Email and Password")
+            self.loginAlert(title: "Invalid Credentials", msg: "Enter Correct Email or Password")
+        }else if((usernameTxtField.text != "") && (!usernameTxtField.text!.isValidEmail())){
+            self.loginAlert(title: "Invalid Email", msg: "Enter Correct Email")
         }else{
             loginInitView()
         }

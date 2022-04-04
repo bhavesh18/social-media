@@ -78,7 +78,7 @@ extension SharePostViewController {
     
     
     func sharePost() {
-        if (self.captionTxtView.text == ""){
+        if (self.captionTxtView.text == "" || self.imageView.image == nil){
             
             return
         }
