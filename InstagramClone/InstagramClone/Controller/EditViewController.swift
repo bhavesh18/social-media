@@ -2,8 +2,8 @@
 //  EditViewController.swift
 //  InstagramClone
 //
-//  Created by Dharam Singh on 28/02/20.
-//  Copyright © 2020 Dharam Singh. All rights reserved.
+//  Created by Jaspinder Singh on 28/03/22.
+//  Copyright © 2020 Jaspinder Singh. All rights reserved.
 //
 
 import UIKit

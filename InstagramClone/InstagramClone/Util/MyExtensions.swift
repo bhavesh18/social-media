@@ -3,7 +3,7 @@
 //  InstagramClone
 //
 //  Created by Bhavesh Sharma on 02/04/22.
-//  Copyright © 2022 Dharam Singh. All rights reserved.
+//  Copyright © 2022 Jaspinder Singh. All rights reserved.
 //
 
 import Foundation

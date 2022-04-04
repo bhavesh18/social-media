@@ -2,8 +2,8 @@
 //  LoginViewController.swift
 //  InstagramClone
 //
-//  Created by Dharam Singh on 08/02/20.
-//  Copyright © 2020 Dharam Singh. All rights reserved.
+//  Created by Jaspinder Singh on 08/03/22.
+//  Copyright © 2020 Jaspinder Singh. All rights reserved.
 //
 
 import UIKit
